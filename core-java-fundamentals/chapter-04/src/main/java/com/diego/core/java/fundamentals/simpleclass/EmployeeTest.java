@@ -14,14 +14,15 @@ public class EmployeeTest {
         staff[1] = new Employee("Harry Hacker", 50000D,1989,10,01);
         staff[2] = new Employee("Tony Tester", 40000D,1990,3,5);
 
-        // raise everyone salary by 5%
+        // raise everyone salary by 5% and setId
         for (Employee e: staff){
             e.raiseSalary(5);
+            e.setId();
         }
 
         // print out information about all employees objects
         for (Employee e : staff){
-            System.out.println("name=" + e.getname() + ",salary=" + e.getSalary() + ",hireDay=" + e.getHireDay());
+            System.out.println("name=" + e.getname() + ",salary=" + e.getSalary() + ",hireDay=" + e.getHireDay() + ", id=" + e.getId());
         }
 
         // Testing mutable field
