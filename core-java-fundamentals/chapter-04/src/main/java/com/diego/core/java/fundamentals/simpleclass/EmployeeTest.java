@@ -14,10 +14,13 @@ public class EmployeeTest {
         staff[1] = new Employee("Harry Hacker", 50000D,1989,10,01);
         staff[2] = new Employee("Tony Tester", 40000D,1990,3,5);
 
+        System.out.println("Static method Employee.getNextId() = " + Employee.getNextId());
+
         // raise everyone salary by 5% and setId
         for (Employee e: staff){
             e.raiseSalary(5);
             e.setId();
+            System.out.println("Static method Employee.getNextId() = " + Employee.getNextId());
         }
 
         // print out information about all employees objects
@@ -46,5 +49,27 @@ public class EmployeeTest {
         LocalDate d = staff[0].getHireDay();
         d = LocalDate.now();
         System.out.println("After  = " + staff[0].getHireDay());
+
+        // Testing Method parameters
+        // Primitive Types will not changed (Numbers, Booleans)
+        System.out.println();
+        double percent = 10D;
+        System.out.println("Testing if variable was changed (before) = " + percent);
+
+        Employee.tripleSalary(percent);
+
+        System.out.println("Testing if variable was changed (after)  = " + percent);
+
+        // Objects reference will be changed !!!
+        // Because the copy is a object reference ! The Method receives the copy, but the both copy
+        // and original refer to the same object !
+        //
+        System.out.println();
+        System.out.println("Testing if variable was changed (before) = " + staff[0].getSalary());
+
+        Employee.tripleSalaryObject(staff[0]);
+
+        System.out.println("Testing if variable was changed (after)  = " + + staff[0].getSalary());
+
     }
 }

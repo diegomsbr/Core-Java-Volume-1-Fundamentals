@@ -1,7 +1,6 @@
 package com.diego.core.java.fundamentals.mutabletest;
 
 import java.time.Instant;
-import java.time.LocalDate;
 import java.util.Date;
 
 public class MutableTest {
@@ -23,8 +22,8 @@ public class MutableTest {
         System.out.println(someMutableClass.getName());
         System.out.println(someMutableClass.getDate());
 
-        // What happend?
-        // Date has a mutatot method setTime, and when we receive it from the class, we can change the value
+        // What happened?
+        // Date has a mutator method setTime, and when we receive it from the class, we can change the value
         // to correct it, we need to return a clone to avoid it.
 
         System.out.println();

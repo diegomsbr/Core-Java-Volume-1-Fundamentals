@@ -9,7 +9,9 @@ public class Employee {
     private double salary;
     private LocalDate hireDay;
     private int id;
-    private static int nextId = 1; // Be carefull working with threats, study it in chapter 12
+
+    // Be careful working with static fields and methods with threats, study it in chapter 12
+    private static int nextId = 1;
 
     // constructor
     public Employee(String name, double salary, int year, int month, int day) {
@@ -43,8 +45,32 @@ public class Employee {
         nextId++;
     }
 
+    /*
+        Use Static Methods in two situations:
+
+        1 - When a method doesn't need to access the object
+            state because all needed parameters are supplied as explicit parameters (example: Math.pow)
+
+        2 - When a method only need to access static fields of the class (Example: Employee.getNextId).
+
+     */
+    public static int getNextId(){
+        return nextId;
+    }
+
     public int getId(){
         return this.id;
+    }
+
+
+
+    // Testing method parameters type
+    public static void tripleSalaryObject(Employee x){
+        x.raiseSalary(200);
+    }
+
+    public static void tripleSalary(Double percent){
+        percent = 3 * percent;
     }
 
 }
