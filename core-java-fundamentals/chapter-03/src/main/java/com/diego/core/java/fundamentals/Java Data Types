@@ -1,0 +1,122 @@
+Primitives Data Types (8)
+
+Numbers (4)
+--------------------------------------------------------------------------
+Type        Storage Requirement            Range (inclusive)
+
+int               4 bytes                    -2,147,483,648 to 2,147,483,647
+short             2 bytes                    -32,768 to 32,767
+long              8 bytes                    -9,223,372,036,854,775,808 to  9,223,372,036,854,775,807
+byte              1 byte                     -128 to 127
+
+--------------------------------------------------------------------------
+Prefix/Sufix
+
+Long  Sufix L or l
+long someLong = 10L;
+
+Hexadecimal prefix 0x or 0X example 0xCAFE
+Octal       prefix 0, example 010 = 8
+Binary      prefix 0b or 0B, example 0b1001 = 9
+
+Since Java 7 we can put '_' to separate number formats, the compiler simply remove it, it is only for
+human eyes:
+
+0b111_101_001 is the same at 0b111101001
+--------------------------------------------------------------------------
+
+--------------------------------------------------------------------------
+Floating points (2)
+--------------------------------------------------------------------------
+Type        Storage Requirement            Range (inclusive)
+
+float             4 bytes                    Approximately +/- 3.402 823 47E+38F
+                                             (6-7 significant decimal digits)
+double            8 bytes                    Approximately +/- 1.797 693 134 862 315 70E+308
+                                             (15 significant decimal digits)
+
+--------------------------------------------------------------------------
+Prefix/Sufix
+
+float  Sufix F or f
+double Sufix D or d
+
+float  someFloat = 3.14F;
+double somedouble = 3.14D;
+
+
+Floating-point literal in hexadecimal:
+
+0.125 = 2^-3 = 0x1.0p-3
+
+(p  = exponent, not e, because e = a hexadecimal number)
+Mantissa is written in hexadecimal and exponent in decimal.
+The base of exponent is 2 not 10.
+--------------------------------------------------------------------------
+Follow the IEEE 754 specification
+
+Three special floating-points values to denote overflows and errors:
+
+1 - Positive infinity
+2 - negative infinity
+3 - NaN (not a number)
+
+10/0 = Positive infinity
+0/0 or square root of a negative number = NaN
+
+You cannot test
+
+if (x == Double.NaN) // is never true
+
+The correct is
+
+if (Double.isNaN(x)) // check whether x is "not a number"
+
+Warning!!!!
+
+Floating point numbers are represented in the binary number system.
+There is no precise binary representation of the fraction 1/10, just
+there is no accurate representation of the fraction 1/3 in the decimal system.
+
+If you need precise numerical computations without roundoff errors, use the BigDecimal!
+
+--------------------------------------------------------------------------
+Character Types (1)
+--------------------------------------------------------------------------
+Type        Storage Requirement            Range (inclusive)
+char              2 bytes                  \u0000 to \uFFFF
+
+Scape sequences for Special Characters
+
+Escape Sequence          Name                 Unicode Value
+\b                      BackSpace             \u0008
+\t                      Tab                   \u0009
+\n                      Linefeed              \u000a
+\r                      Carriage Return       \u000d
+\"                      Double Quote          \u0022
+\'                      Single Quote          \u0027
+\\                      Backslash             \u005c
+
+Warning
+
+Unicode sequences are processed before the code is parsed.
+
+If you put it in a comments for example, it could generate an error when program is read
+Example
+
+// \u000A is a newline
+
+yields a syntax error since \u000A is replaced with a newline when the program is read
+
+--------------------------------------------------------------------------
+Boolean (1)
+--------------------------------------------------------------------------
+Type        Storage Requirement            Range (inclusive)
+
+boolean            1 bit                      true/false (0 or 1)
+
+one bit of information, but its "size" isn't something that's precisely defined.
+
+
+
+
